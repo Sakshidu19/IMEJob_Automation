@@ -8,6 +8,7 @@ def setup(request):
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
     driver.get("https://imejob.com/")
+    driver.implicitly_wait(10)
     driver.maximize_window()
     request.cls.driver = driver
 

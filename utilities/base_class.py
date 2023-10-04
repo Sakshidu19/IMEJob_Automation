@@ -12,6 +12,11 @@ class BaseClass():
         wait.until(expected_conditions.visibility_of_element_located(locator))
 
 
+    def wait_for_invisibility(self, locator, time=5):
+        wait = WebDriverWait(self.driver, time)
+        wait.until(expected_conditions.invisibility_of_element_located(locator))
+
+
     def get_select_option_by_visible_text(self, locator, value):
         loc_select = Select(locator)
         loc_select.select_by_visible_text(value)

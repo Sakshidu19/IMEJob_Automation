@@ -17,8 +17,10 @@ class SearchJobPage(BaseClass):
     salary_range_locator = (By.XPATH, '(//select)[2]')
     search_btn_locator = (By.XPATH, "//div[@class='search-area']/button")
     validate_search_btn = (By.XPATH, "//div[@class='left-panel ']/h2")
-
-
+    visibility_loader_locator = (By.XPATH, "//div[@class='page-preloader d-flex align-items-center justify-content-center']")
+    apply_btn_locator = (By.XPATH, "//div[@class='oppening']/a")
+    validate_first_job_locator = (By.XPATH, "(//div[@class='oppening-con ']/h2)[1]")
+    validate_jobpage_text_locator = (By.XPATH, "//div[@class='card-body']/h3")
 
 
 
@@ -74,3 +76,17 @@ class SearchJobPage(BaseClass):
     def get_validate_search_btn(self):
         self.wait_for_visibiltiy(self.validate_search_btn)
         return self.driver.find_element(*self.validate_search_btn)
+
+
+    def get_click_apply(self):
+        self.wait_for_invisibility(self.visibility_loader_locator)
+        return self.driver.find_element(*self.apply_btn_locator)
+
+
+    def get_validate_Firstjob(self):
+        self.wait_for_invisibility(self.visibility_loader_locator)
+        return self.driver.find_element(*self.validate_first_job_locator)
+
+    def get_validate_applyjob(self):
+        self.wait_for_visibiltiy(self.validate_jobpage_text_locator)
+        return self.driver.find_element(*self.validate_jobpage_text_locator)
